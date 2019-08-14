@@ -1,12 +1,12 @@
-import { StyledComponent, Styled } from '@ngx-styled/ngx-styled';
 import { Component } from '@angular/core';
+import { StyledComponent, Styled } from '@ngx-styled/ngx-styled';
 @Component({
   selector: 'ngx-styled-demo-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 @Styled<AppComponent>({
-  style: componentInstance => {
+  style: _componentInstance => {
     return `
       & button{
         padding: 10px;

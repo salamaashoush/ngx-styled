@@ -1,11 +1,25 @@
 {
   "name": "ngx-styled",
-  "version": "0.0.1-beta",
+  "version": "0.0.1-beta-1",
   "author": {
     "name": "Salama Ashoush",
     "email": "salamaashoush@gmail.com",
-    "url": ""
+    "url": "https://github.com/salamaashoush"
   },
+  "homepage": "https://github.com/salamaashoush/ngx-styled",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salamaashoush/ngx-styled.git"
+  },
+  "keywords": [
+    "styles",
+    "emotion",
+    "angular",
+    "css",
+    "css-in-js",
+    "styled-component"
+  ],
   "peerDependencies": {
     "@angular/common": "^8.1.1",
     "@angular/core": "^8.1.1"

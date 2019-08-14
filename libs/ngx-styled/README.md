@@ -13,16 +13,26 @@ import { Component } from '@angular/core'
   // scoped component style
   style: componentInstance => {
     return `
-      background: ${componentInstance.color}
-    `
+      & button{
+        padding: 10px;
+        border: none;
+        color: white;
+        background: #2c3e50;
+      }
+    `;
   },
   // inject global style
   globalStyle: componentInstance => {
     return `
-      body{
-        background: ${componentInstance.color}
+      body {
+        background: ${componentInstance.color};
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-    `
+    `;
   }
 })
 class SimpleComponent extends StyledComponent {
