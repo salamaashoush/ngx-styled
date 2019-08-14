@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StyledComponent, Styled } from '@ngx-styled/ngx-styled';
+import { Styled } from '@ngx-styled/ngx-styled';
 @Component({
   selector: 'ngx-styled-demo-root',
   templateUrl: './app.component.html',
@@ -29,7 +29,7 @@ import { StyledComponent, Styled } from '@ngx-styled/ngx-styled';
     `;
   }
 })
-export class AppComponent extends StyledComponent {
+export class AppComponent {
   title = 'ngx-styled-demo';
   color = '#3498db';
 

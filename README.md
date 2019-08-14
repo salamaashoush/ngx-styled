@@ -1,9 +1,11 @@
 # NgxStyled
 
+[![npm version](https://badge.fury.io/js/ngx-styled.svg)](https://badge.fury.io/js/ngx-styled)
+
 This is a simple  decorator to integrate [emotion](https://emotion.sh/docs/emotion) with angular components
 
 ```typescript
-import { Styled, StyledComponent } from 'ngx-styled';
+import { Styled } from 'ngx-styled';
 import { Component } from '@angular/core'
 
 @Component({
@@ -35,7 +37,7 @@ import { Component } from '@angular/core'
     `;
   }
 })
-class SimpleComponent extends StyledComponent {
+class SimpleComponent {
   classes: string; // managed by ngx-styled
   color = 'green';
 
