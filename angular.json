@@ -1,39 +1,39 @@
 {
   "version": 1,
   "projects": {
-    "ngx-styled": {
+    "ngx-styled-demo": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/ngx-styled",
-      "sourceRoot": "apps/ngx-styled/src",
-      "prefix": "ngx-styled",
+      "root": "apps/ngx-styled-demo",
+      "sourceRoot": "apps/ngx-styled-demo/src",
+      "prefix": "ngx-styled-demo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/ngx-styled",
-            "index": "apps/ngx-styled/src/index.html",
-            "main": "apps/ngx-styled/src/main.ts",
-            "polyfills": "apps/ngx-styled/src/polyfills.ts",
-            "tsConfig": "apps/ngx-styled/tsconfig.app.json",
+            "outputPath": "dist/apps/ngx-styled-demo",
+            "index": "apps/ngx-styled-demo/src/index.html",
+            "main": "apps/ngx-styled-demo/src/main.ts",
+            "polyfills": "apps/ngx-styled-demo/src/polyfills.ts",
+            "tsConfig": "apps/ngx-styled-demo/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "apps/ngx-styled/src/favicon.ico",
-              "apps/ngx-styled/src/assets"
+              "apps/ngx-styled-demo/src/favicon.ico",
+              "apps/ngx-styled-demo/src/assets"
             ],
-            "styles": ["apps/ngx-styled/src/styles.scss"],
+            "styles": ["apps/ngx-styled-demo/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/ngx-styled/src/environments/environment.ts",
-                  "with": "apps/ngx-styled/src/environments/environment.prod.ts"
+                  "replace": "apps/ngx-styled-demo/src/environments/environment.ts",
+                  "with": "apps/ngx-styled-demo/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -58,64 +58,75 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-styled:build"
+            "browserTarget": "ngx-styled-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-styled:build:production"
+              "browserTarget": "ngx-styled-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-styled:build"
+            "browserTarget": "ngx-styled-demo:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/ngx-styled/tsconfig.app.json",
-              "apps/ngx-styled/tsconfig.spec.json"
+              "apps/ngx-styled-demo/tsconfig.app.json",
+              "apps/ngx-styled-demo/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/ngx-styled/**"]
+            "exclude": ["**/node_modules/**", "!apps/ngx-styled-demo/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/ngx-styled/jest.config.js",
-            "tsConfig": "apps/ngx-styled/tsconfig.spec.json",
-            "setupFile": "apps/ngx-styled/src/test-setup.ts"
+            "jestConfig": "apps/ngx-styled-demo/jest.config.js",
+            "tsConfig": "apps/ngx-styled-demo/tsconfig.spec.json",
+            "setupFile": "apps/ngx-styled-demo/src/test-setup.ts"
           }
         }
       }
     },
-    "ngx-styled-e2e": {
-      "root": "apps/ngx-styled-e2e",
-      "sourceRoot": "apps/ngx-styled-e2e/src",
-      "projectType": "application",
+    "ngx-styled": {
+      "projectType": "library",
+      "root": "libs/ngx-styled",
+      "sourceRoot": "libs/ngx-styled/src",
+      "prefix": "ngx-styled",
       "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "cypressConfig": "apps/ngx-styled-e2e/cypress.json",
-            "tsConfig": "apps/ngx-styled-e2e/tsconfig.e2e.json",
-            "devServerTarget": "ngx-styled:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ngx-styled:serve:production"
-            }
+            "tsConfig": "libs/ngx-styled/tsconfig.lib.json",
+            "project": "libs/ngx-styled/ng-package.json"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/ngx-styled-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/ngx-styled-e2e/**"]
+            "tsConfig": [
+              "libs/ngx-styled/tsconfig.lib.json",
+              "libs/ngx-styled/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ngx-styled/**"]
           }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ngx-styled/jest.config.js",
+            "tsConfig": "libs/ngx-styled/tsconfig.spec.json",
+            "setupFile": "libs/ngx-styled/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }
@@ -132,5 +143,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "ngx-styled"
+  "defaultProject": "ngx-styled-demo"
 }

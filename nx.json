@@ -8,7 +8,7 @@
     "nx.json": "*"
   },
   "projects": {
-    "ngx-styled-e2e": {
+    "ngx-styled-demo": {
       "tags": []
     },
     "ngx-styled": {
