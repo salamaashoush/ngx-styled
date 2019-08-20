@@ -11,31 +11,26 @@ import { Component } from '@angular/core'
 @Component({
   template: '<div [ngClass]="classes"><button (click)="changeColor()">Change Color</button></div>',
 })
-@Styled<SimpleComponent>({
-  // scoped component style
-  style: componentInstance => {
-    return `
-      & button{
-        padding: 10px;
-        border: none;
-        color: white;
-        background: #2c3e50;
-      }
-    `;
-  },
-  // inject global style
-  globalStyle: componentInstance => {
-    return `
+@Styled<AppComponent>(({ component, css, injectGlobal }) => {
+  // tslint:disable-next-line: no-unused-expression
+  injectGlobal`
       body {
-        background: ${componentInstance.color};
+        background: ${component.color};
         width: 100vw;
         height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
       }
-    `;
-  }
+  `;
+  return css({
+    '& button': {
+      padding: 10,
+      border: 'none',
+      color: 'white',
+      background: '#2c3e50'
+    }
+  });
 })
 class SimpleComponent {
   classes: string; // managed by ngx-styled
