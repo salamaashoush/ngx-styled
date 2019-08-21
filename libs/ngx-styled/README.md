@@ -11,7 +11,7 @@ import { Component } from '@angular/core'
 @Component({
   template: '<div [ngClass]="classes"><button (click)="changeColor()">Change Color</button></div>',
 })
-@Styled<AppComponent>(({ component, css, injectGlobal }) => {
+@Styled<SimpleComponent>(({ component, css, injectGlobal }) => {
   // tslint:disable-next-line: no-unused-expression
   injectGlobal`
       body {
